@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigQuery Release Notes Explorer</title>
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Header Section -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+                <div>
+                    <h1>BigQuery</h1>
+                    <p class="subtitle">Release Insights</p>
+                </div>
+            </div>
+            
+            <div class="controls-section">
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search updates...">
+                </div>
+                
+                <!-- Category Filters -->
+                <div class="filter-group">
+                    <label>Filter by Type</label>
+                    <div class="tag-filters" id="tagFilters">
+                        <button class="tag-filter active" data-type="all">All</button>
+                        <button class="tag-filter" data-type="Feature"><span class="badge feature"></span>Feature</button>
+                        <button class="tag-filter" data-type="Announcement"><span class="badge announcement"></span>Announcement</button>
+                        <button class="tag-filter" data-type="Change"><span class="badge change"></span>Change</button>
+                        <button class="tag-filter" data-type="Breaking"><span class="badge breaking"></span>Breaking</button>
+                        <button class="tag-filter" data-type="Issue"><span class="badge issue"></span>Issue</button>
+                    </div>
+                </div>
+
+                <!-- Stats Panel -->
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <span class="stat-value" id="totalUpdatesCount">0</span>
+                        <span class="stat-label">Total Updates</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="lastFetchedTime">-</span>
+                        <span class="stat-label">Last Updated</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <p>Day 2 Challenge Project</p>
+                <p class="copyright">&copy; 2026 AiChallenge</p>
+            </div>
+        </aside>
+
+        <!-- Main Feed Section -->
+        <main class="main-content">
+            <header class="feed-header">
+                <div class="header-left">
+                    <h2>Release Feed</h2>
+                    <p id="feedSubtitle">Showing latest updates from official Google Cloud feeds</p>
+                </div>
+                <div class="header-actions">
+                    <button id="themeToggleBtn" class="btn btn-secondary" title="Toggle Light/Dark Mode">
+                        <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    </button>
+                    <button id="exportCsvBtn" class="btn btn-secondary" title="Export current feed to CSV">
+                        <i class="fa-solid fa-file-csv"></i>
+                        <span>Export CSV</span>
+                    </button>
+                    <button id="refreshBtn" class="btn btn-primary">
+                        <i class="fa-solid fa-rotate-right" id="refreshIcon"></i>
+                        <span>Refresh Notes</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Loading Spinner Overlay -->
+            <div id="loadingOverlay" class="loading-overlay hidden">
+                <div class="spinner-container">
+                    <div class="spinner"></div>
+                    <p>Fetching latest updates from BigQuery feed...</p>
+                </div>
+            </div>
+
+            <!-- Feed Container -->
+            <div class="feed-container" id="feedContainer">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Tweet Composer Modal -->
+    <div id="tweetModal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-brands fa-x-twitter"></i> Compose Tweet</h3>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="composer-tip">Customize your update share preview below:</p>
+                <div class="tweet-composer-container">
+                    <textarea id="tweetTextarea" placeholder="What's happening?"></textarea>
+                    <div class="composer-meta">
+                        <div class="char-counter" id="charCounter">280</div>
+                    </div>
+                </div>
+                <div class="preview-box">
+                    <div class="preview-title">Link Preview</div>
+                    <div class="preview-link-card">
+                        <div class="preview-link-icon"><i class="fa-solid fa-link"></i></div>
+                        <div class="preview-link-details">
+                            <span class="preview-link-url">cloud.google.com</span>
+                            <span class="preview-link-title">BigQuery Release Notes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelTweetBtn">Cancel</button>
+                <button class="btn btn-tweet" id="confirmTweetBtn">
+                    <i class="fa-brands fa-x-twitter"></i> Post to X
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon" id="toastIcon"></i>
+            <span class="toast-message" id="toastMessage">Notes loaded successfully.</span>
+        </div>
+    </div>
+
+    <!-- Javascript File -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
