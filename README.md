@@ -10,7 +10,7 @@ I am completing the daily tasks to build agentic applications, learn state-of-th
 
 - [x] **Day 1**: Setup & Foundations
 - [x] **Day 2**: [BigQuery Release Notes Explorer & Tweet Composer](file:///C:/Users/ranji/Projects/AiChallenge/day2-challenge) (Python Flask + Vanilla HTML/JS/CSS App). *Features premium UI/UX enhancements suggested by the Antigravity CLI (category icon badges, widescreen grid view, and smooth transitions).*
-- [ ] **Day 3**: *Upcoming*
+- [x] **Day 3**: [Git Test Repository](file:///C:/Users/ranji/Projects/AiChallenge/day3-challenge/git_test) (Git initialization, file staging, and initial commit sandbox)
 - [ ] **Day 4**: *Upcoming*
 - [ ] **Day 5**: *Upcoming / Capstone Project*
 
