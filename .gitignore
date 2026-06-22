@@ -116,3 +116,4 @@ venv.bak/
 # Project-specific logs
 *.log
 day2-challenge/instance/
+.env
