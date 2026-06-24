@@ -11,7 +11,7 @@ I am completing the daily tasks to build agentic applications, learn state-of-th
 - [x] **Day 1**: Setup & Foundations
 - [x] **Day 2**: [BigQuery Release Notes Explorer & Tweet Composer](file:///C:/Users/ranji/Projects/AiChallenge/day2-challenge) (Python Flask + Vanilla HTML/JS/CSS App). *Features premium UI/UX enhancements suggested by the Antigravity CLI (category icon badges, widescreen grid view, and smooth transitions).*
 - [x] **Day 3**: [Git Test Repository](file:///C:/Users/ranji/Projects/AiChallenge/day3-challenge/git_test) (Git initialization, file staging, and initial commit sandbox)
-- [ ] **Day 4**: *Upcoming*
+- [x] **Day 4**: [Ambient Expense Approval Agent](file:///c:/Users/ranji/Projects/AiChallenge/day4-challenge/ambient-expense-agent) (Google ADK 2.0 Web Service + Local Dev UI). *Features a FastAPI server driven by Pub/Sub event payloads, prompt-injection defense, automated PII redaction, an interactive local web interface, and a custom HTTP-based LLM-as-judge evaluation suite.*
 - [ ] **Day 5**: *Upcoming / Capstone Project*
 
 ---
